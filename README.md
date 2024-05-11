@@ -25,18 +25,18 @@
   - Make use of the proper mechanisms for authentication and authorization
     -  Implement OAuth 2.0 or JWT-based authentication and define roles/permissions for authorized users.
     -  authentication
-      -  crucial for protecting sensitive data and preventing unauthorized access to APIs
-      -  process of verifying the identity of a user or client accessing an API
-      -  ensures that the entity requesting access is who they claim to be.
-      -  Common authentication methods include username/password, OAuth, OpenID Connect, and JWT.
-      -  OAuth enables delegated access to resources by allowing third-party applications to obtain limited access tokens on behalf of users.
-      -  Authentication is typically performed before authorization to ensure that only authenticated users are granted access to protected resources.
+        -  crucial for protecting sensitive data and preventing unauthorized access to APIs
+        -  process of verifying the identity of a user or client accessing an API
+        -  ensures that the entity requesting access is who they claim to be.
+        -  Common authentication methods include username/password, OAuth, OpenID Connect, and JWT.
+        -  OAuth enables delegated access to resources by allowing third-party applications to obtain limited access tokens on behalf of users.
+        -  Authentication is typically performed before authorization to ensure that only authenticated users are granted access to protected resources.
     -  Authorization
-      -  determining what actions a user or client is allowed to perform within an API
-      -  verifies the identity of a user and checks if they have the necessary permissions to access or manipulate resources
-      -  Authorization mechanisms include role-based access control (RBAC), attribute-based access control (ABAC), and JSON Web Tokens (JWT).
-      -  RBAC assigns roles to users and defines permissions based on those roles
-      -  JWT is a token-based authentication method that securely transmits claims between parties and can be used for authorization purposes.
+        -  determining what actions a user or client is allowed to perform within an API
+        -  verifies the identity of a user and checks if they have the necessary permissions to access or manipulate resources
+        -  Authorization mechanisms include role-based access control (RBAC), attribute-based access control (ABAC), and JSON Web Tokens (JWT).
+        -  RBAC assigns roles to users and defines permissions based on those roles
+        -  JWT is a token-based authentication method that securely transmits claims between parties and can be used for authorization purposes.
   - Use JSON
   - Pagination
     - technique used in APIs to break large sets of data into smaller, more manageable chunks called pages
