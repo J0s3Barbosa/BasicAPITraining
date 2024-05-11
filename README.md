@@ -1,1 +1,44 @@
 # BasicAPITraining
+
+- create an API
+- follow RestAPI best practices
+  - Use HTTP methods
+    - Example : GET /customers, POST /shipment, PUT /products/{id}, DELETE /orders/{id}
+  - Use clear and consistent resource naming conventions
+    - Example : /customers, /orders, /shipment, /products
+  - Use HTTP status codes correctly
+    - Exapmle: 200 OK, 201 Created, 400 Bad Request, 404 Not Found, etc.
+  - Make your API stateless by design
+    -  Authenticate each request with an access token rather than relying on server-side sessions.
+  - Authentication
+  - Make use of the proper mechanisms for authentication and authorization
+    -  Implement OAuth 2.0 or JWT-based authentication and define roles/permissions for authorized users.
+  - Use JSON
+  - Pagination
+  - Versioning
+    - Example: /v1/orders, /v2/customers
+  - sort and filter
+  - Error handling
+    - To eliminate confusion for API users when an error occurs, we should handle errors gracefully and return HTTP response codes that indicate what kind of error
+    - Implement error handling to handle exceptions and errors that may occur during API requests   
+  - Caching
+  - use HTTPS and SSL
+  - Validate input parameters
+  - 
+- working with first code migration
+- Dependenci injection
+  - technique that makes a class independent of its dependencies
+  - achieves that by decoupling the usage of an object from its creation
+  - helps you to follow SOLID's dependency inversion and single responsibility principles
+- Solid
+  - class should have only one job or responsability
+  - open for extention but closed for modification
+  - extend OCP and enables u to replace base classes with derived ones without breaking the application 
+  - interfaces with need actions for the client
+  - high level dependencies should not depend on low lever, both depend on abstractions
+- Unit test
+  - xunit,moq, assertions
+- Integration tests
+  - rest client
+  - json
+  - xunit
