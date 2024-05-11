@@ -200,3 +200,73 @@
   - Async methods can return void, Task, or Task<T>.
   - result is allocated in the heap
 
+- Microservices
+  - small services each running in their own space and can communicate via messaging.
+  - These are independent services directly calling their own database.
+  - are deployed independently with their own database per service.
+- Why/Advantage Microservice
+  - Faster than monolithic architecture
+  - If one of the services fails another will run
+  - Independent deployment. So there is no need to take down the entire application.
+  - Technology Independent
+  - It enables continuous delivery.
+  - Increase application performance.
+  - Dockerization and containerization are possible.
+  - The service may run on different servers.
+
+- There are various components in a microservices architecture apart from microservices
+  - Management. Maintains the nodes for the service.
+  - Identity Provider. Manages the identity information and provides authentication services within a distributed network.
+  - Service Discovery. Keeps track of services and service addresses and endpoints.
+  - API Gateway.
+    - Serves as client’s entry point.
+    - Single point of contact from the client which in turn returns responses from underlying microservices and sometimes an aggregated response from multiple underlying microservices.
+  - CDN
+    - A content delivery network to serve static resources for e.g. pages and web content in a distributed network
+  - Static Content
+    - The static resources like pages and web content
+   
+    - 
+- Monolithic applications
+  - are more of a single complete package having all the related needed components and services encapsulated in one package.
+
+- CQRS
+  - Command: Represents an action that mutates the system's state.
+  - Query: Represents a request for data retrieval without changing the system's state.
+  - Command Handler: Responsible for executing commands and updating the system's state.
+  - Query Handler: Responsible for handling read requests and returning data in response to queries.
+  - Command Model: Contains the logic and rules necessary to process commands and update the data store.
+  - Query Model: Optimized for querying and presenting data to users, often involving denormalized or optimized data structures tailored for specific queries.
+- Key Principles
+  - Separation of Concerns: Splitting the responsibilities of reading and writing data helps in maintaining simpler, more focused models for each task.
+  - Performance Optimization: Enables independent scaling of read and write operations. The read model can be optimized for query performance without affecting the write model.
+  - Flexibility: Allows for different models to be used for reading and writing, which can cater to specific requirements and optimizations for each use case.
+  - Complex Domain Logic: Particularly beneficial in domains where read and write logic significantly differ, allowing tailored models for each type of operation.
+- Benefits
+  - Scalability: CQRS enables scaling read and write operations independently, optimizing performance.
+  - Flexibility and Optimization: Tailoring models for specific tasks allows for better optimization of the system.
+  - Complexity Management: Separating concerns can make the system easier to understand and maintain.
+- Challenges
+  - Increased Complexity: Introducing separate models for reading and writing can add complexity to the system.
+  - Synchronization: Keeping the read and write models synchronized can pose challenges, potentially requiring mechanisms like eventual consistency.
+
+- Message Broker
+  - main responsibility is to broker messages between publisher and subscribers
+  - Once a message broker receives a message from the producer, it routes the message to a subscriber.
+  - The message broker pattern is one of the most useful patterns when it comes to decoupling microservices.
+  - Producer: An application responsible for sending messages.
+  - Consumer: An application responsible for messages.
+  - Queue: Storage where messages are stored
+
+- RabbitMQ
+common platform for sending and receiving messages
+ensures that our messages (data) are never lost and successfully receivedby consumers and it supports various messaging protocols
+- Advantages Of RabbitMQ
+- There are some reasons why using a queue instead of directly sending data is better,
+  - Higher availability and better error handling
+  - Better scalability
+  - Extremely lightweight and very easy to deploy
+  - Share data with whoever wants/needs it
+  - Better user experience due to asynchronous processing
+
+
