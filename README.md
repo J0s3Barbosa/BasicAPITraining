@@ -201,10 +201,14 @@
   - result is allocated in the heap
 
 - Microservices
-  - small services each running in their own space and can communicate via messaging.
-  - These are independent services directly calling their own database.
+  - Microservices architecture design
+    - https://learn.microsoft.com/en-us/azure/architecture/microservices/
+  - architectural style for building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly
   - are deployed independently with their own database per service.
-- Why/Advantage Microservice
+  - Services communicate with each other by using well-defined APIs
+  - Each service is a separate codebase
+  - 
+- Why Microservice
   - Faster than monolithic architecture
   - If one of the services fails another will run
   - Independent deployment. So there is no need to take down the entire application.
@@ -221,6 +225,11 @@
   - API Gateway.
     - Serves as client’s entry point.
     - Single point of contact from the client which in turn returns responses from underlying microservices and sometimes an aggregated response from multiple underlying microservices.
+    - takes requests from clients, routes them to the right services, gathers the necessary data, and combines the results into a single package
+    - typically process requests based on defined policies, such as:
+      - Authentication, Authorization, Access control, SSL/TLS offloading, Routing, Load balancing, SSL termination, and Rate limiting.
+    - can improve security, scalability, and architecture
+    - reduce latency by caching frequently requested data
   - CDN
     - A content delivery network to serve static resources for e.g. pages and web content in a distributed network
   - Static Content
@@ -259,14 +268,50 @@
   - Queue: Storage where messages are stored
 
 - RabbitMQ
-common platform for sending and receiving messages
+is a Message Queueing service for sending and receiving messages
+acts as a mediator between producers of messages and consumers who receive and process those messages
 ensures that our messages (data) are never lost and successfully receivedby consumers and it supports various messaging protocols
+acts as an intermediary for microservices to exchange data
 - Advantages Of RabbitMQ
-- There are some reasons why using a queue instead of directly sending data is better,
   - Higher availability and better error handling
   - Better scalability
   - Extremely lightweight and very easy to deploy
   - Share data with whoever wants/needs it
   - Better user experience due to asynchronous processing
+  - Ensures efficient utilization of resources and prevents bottlenecks
 
+- API resilience patterns
+  - microsoft - Application resiliency patterns
+    - https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/application-resiliency-patterns
+  - APIs that can withstand various challenges and continue to function effectively
+  - Error handling
+    - Use HTTP status codes effectively, and provide descriptive error responses to help with troubleshooting
+  - Circuit breakers
+    - used to improve the resilience and fault tolerance of systems, particularly in distributed and microservices architectures
+    - helps prevent repeated and potentially costly failures when a component, service, or resource is temporarily unavailable
+    - handle failures by temporarily stopping requests to a failing service and redirecting traffic to a fallback mechanism
+    - have three states: closed, open, and half-open
+      - When everything is working properly, requests are sent to the service.
+      - If the application receives consecutive errors or timeouts, the connection is closed.
+      - Half-open is a transitional state where the mechanism evaluates if the service is stable again.
+  - API Gateway
+    - Deploy multiple instances of the API Gateway across different nodes in a Kubernetes cluster to provide redundancy and fault tolerance.
+    - This eliminates single points of failure and ensures a highly available cluster that can withstand node failures.
+- Rety pattern
+  - automatically retries failed operations to make synchronous communication more resilient
+  - common pattern for recovering from transient errors, which are errors that only last a short time
+  - Transient faults are usually self-correcting and can include: Network connectivity loss, Service unavailability, Timeouts, and Component overload
+- Timeout pattern
+  -  setting a maximum time for an operation or request to complete
+  -  If the operation exceeds this time limit, it is terminated, and the system can take appropriate action, like retrying the request, logging an error, or notifying the user.
+  - used in almost every application to avoid requests getting stuck forever
+- Rate limiting
+  - limit the number of requests an API can receive within a given time period.
+  - helps protect against malicious bot attacks
+  - ensure that everyone has fair access to the API. 
+
+- Observability patterns
+- https://learn.microsoft.com/en-us/dotnet/architecture/cloud-native/observability-patterns
+
+- 
 
